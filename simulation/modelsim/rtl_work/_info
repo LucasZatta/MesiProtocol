@@ -1,0 +1,150 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\janio\Desktop\snoopingMESI\mesi\simulation\modelsim
+vmaquinaMESI
+IZf3d`^MNT[Km5oAXn>kdl3
+VKPE6hRzfJz?m1Sb=UQVS11
+Z1 dC:\Users\janio\Desktop\snoopingMESI\mesi\simulation\modelsim
+Z2 w1644450864
+8C:/Users/janio/Desktop/snoopingMESI/mesi/maquinamesi.v
+FC:/Users/janio/Desktop/snoopingMESI/mesi/maquinamesi.v
+L0 1
+Z3 OV;L;10.1d;51
+r1
+31
+Z4 o-vlog01compat -work work -O0
+Z5 !s92 -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi -O0
+nmaquina@m@e@s@i
+!i10b 1
+!s100 [Y]ZMddJU>RTz09d`^jLS0
+!s85 0
+!s108 1644464748.794000
+!s107 C:/Users/janio/Desktop/snoopingMESI/mesi/maquinamesi.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/janio/Desktop/snoopingMESI/mesi|C:/Users/janio/Desktop/snoopingMESI/mesi/maquinamesi.v|
+!s101 -O0
+vMaquinaSecundaria
+I[R=5^ZE1a^akAZU80eQNd1
+Vh4lcekh87V<nfF3^8O;>[2
+R1
+R2
+8C:/Users/janio/Desktop/snoopingMESI/mesi/MaquinaSecundaria.v
+FC:/Users/janio/Desktop/snoopingMESI/mesi/MaquinaSecundaria.v
+L0 1
+R3
+r1
+31
+R4
+R5
+n@maquina@secundaria
+!i10b 1
+!s100 4T82?837XJeeAWf=HC@gB1
+!s85 0
+!s108 1644464748.216000
+!s107 C:/Users/janio/Desktop/snoopingMESI/mesi/MaquinaSecundaria.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/janio/Desktop/snoopingMESI/mesi|C:/Users/janio/Desktop/snoopingMESI/mesi/MaquinaSecundaria.v|
+!s101 -O0
+vmesi
+I<0Y8NlI8B1gl6V3]Zmg9k0
+V21H_Xfl_j59<QSbmfcAbJ3
+R1
+Z6 w1644450865
+8C:/Users/janio/Desktop/snoopingMESI/mesi/mesi.v
+FC:/Users/janio/Desktop/snoopingMESI/mesi/mesi.v
+L0 1
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 WRB?0gnJ`OJ4zL_Q`^4JQ0
+!s85 0
+!s108 1644464747.669000
+!s107 C:/Users/janio/Desktop/snoopingMESI/mesi/mesi.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/janio/Desktop/snoopingMESI/mesi|C:/Users/janio/Desktop/snoopingMESI/mesi/mesi.v|
+!s101 -O0
+vmram
+!i10b 1
+!s100 KfQbl]ca>8Iz1aZGN[Za@2
+IYjKD=Rb6n2?C6:KT_YC=I0
+VdW9c6MPdIA40OQE]5ZIke1
+R1
+R6
+8C:/Users/janio/Desktop/snoopingMESI/mesi/mram.v
+FC:/Users/janio/Desktop/snoopingMESI/mesi/mram.v
+L0 39
+R3
+r1
+!s85 0
+31
+!s108 1644464751.060000
+!s107 C:/Users/janio/Desktop/snoopingMESI/mesi/mram.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/janio/Desktop/snoopingMESI/mesi|C:/Users/janio/Desktop/snoopingMESI/mesi/mram.v|
+!s101 -O0
+R4
+R5
+vP01
+IL<B14RQAMOW9[ePN70=8<1
+V;UVfOIR9Sf<KRIgC2CTR_0
+R1
+R6
+8C:/Users/janio/Desktop/snoopingMESI/mesi/p01.v
+FC:/Users/janio/Desktop/snoopingMESI/mesi/p01.v
+L0 39
+R3
+r1
+31
+R4
+R5
+n@p01
+!i10b 1
+!s100 n6Jk7M6UNKeh4YZj`[CmY2
+!s85 0
+!s108 1644464749.294000
+!s107 C:/Users/janio/Desktop/snoopingMESI/mesi/p01.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/janio/Desktop/snoopingMESI/mesi|C:/Users/janio/Desktop/snoopingMESI/mesi/p01.v|
+!s101 -O0
+vP02
+IDZo:XTPHYnYK>Uce9LfC`2
+VOjXW@HZ6UWh`ZlPAEjJ5?3
+R1
+R6
+8C:/Users/janio/Desktop/snoopingMESI/mesi/p02.v
+FC:/Users/janio/Desktop/snoopingMESI/mesi/p02.v
+L0 39
+R3
+r1
+31
+R4
+R5
+n@p02
+!i10b 1
+!s100 kY13C5JgUb79Jo;^=_XIF2
+!s85 0
+!s108 1644464749.841000
+!s107 C:/Users/janio/Desktop/snoopingMESI/mesi/p02.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/janio/Desktop/snoopingMESI/mesi|C:/Users/janio/Desktop/snoopingMESI/mesi/p02.v|
+!s101 -O0
+vP03
+IiRYk;DE]5Xc<?]l7m@4;G1
+Vdo`fE?b_@fFdzQ;3DzLH>2
+R1
+R6
+8C:/Users/janio/Desktop/snoopingMESI/mesi/p03.v
+FC:/Users/janio/Desktop/snoopingMESI/mesi/p03.v
+L0 39
+R3
+r1
+31
+R4
+R5
+n@p03
+!i10b 1
+!s100 ]Ub20zNPI?WKh<SH7T;>D1
+!s85 0
+!s108 1644464750.450000
+!s107 C:/Users/janio/Desktop/snoopingMESI/mesi/p03.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/janio/Desktop/snoopingMESI/mesi|C:/Users/janio/Desktop/snoopingMESI/mesi/p03.v|
+!s101 -O0

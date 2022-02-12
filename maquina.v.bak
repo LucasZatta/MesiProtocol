@@ -1,0 +1,220 @@
+module maquina(Clk, w_enable, Test_CPU, Hit_Instrucao, Estado_Inicial, RM, WM, Invalid, WB, New_Estado); 
+	input Clk, w_enable, Test_CPU, Hit_Instrucao;// em relação a parte I alteramos as entradas para  as maquinas mais simples
+	input [1:0] Estado_Inicial;		    //[6:0] word e [16:0]bloco foi substituído por Hit_Instrucao e Test_cpu de 1bit cada	
+	output reg RM, WM, Invalid, WB;
+	output reg [1:0]New_Estado;		// as operações que eram feitas na maquina passaram a ser feita no bloco principal
+
+	
+	reg [1:0]bloco_instruction;
+	reg [4:0]tag, tag_instruction;
+	
+	always@(posedge Clk)
+	begin
+	if(Test_CPU)
+		begin
+			if(w_enable)
+				case(Estado_Inicial)
+					2'b01: 	//Invalido: I
+						begin
+							RM = 0;
+							WM = 1;
+							Invalid = 0;
+							WB = 0;
+							New_Estado = 2'b11;
+						end
+					2'b10: 	//Shared: S
+						begin
+									if(Hit_Instrucao)// write hit
+										begin
+											RM = 0;
+											WM = 0;
+											Invalid = 1;
+											WB = 0;
+											New_Estado = 2'b11;
+										end
+									else // write miss
+										begin
+											RM = 0;
+											WM = 1;
+											Invalid = 0;
+											WB = 0;
+											New_Estado = 2'b11;
+										end	
+						end
+					2'b11: 	//Modified: M	
+						begin
+										if(Hit_Instrucao) // write hit
+											begin
+												RM = 0;
+												WM = 0;
+												Invalid = 0;
+												WB = 0;
+												New_Estado = 2'b11;
+											end
+										else // write miss
+											begin
+												RM = 0;
+												WM = 1;
+												Invalid = 0;
+												WB = 1;
+												New_Estado = 2'b11;
+											end	
+							end
+				endcase
+			else
+				case(Estado_Inicial)
+					2'b01: 	//Invalido: I
+						begin
+							RM = 1;
+							WM = 0;
+							Invalid = 0;
+							WB = 0;
+							New_Estado = 2'b10;
+						end
+					2'b10: 	//Shared: S	
+						begin
+									if(Hit_Instrucao) // read hit
+										begin
+											RM = 0;
+											WM = 0;
+											Invalid = 0;
+											WB = 0;
+											New_Estado = 2'b10;
+										end
+									else // read miss
+										begin
+											RM = 1;
+											WM = 0;
+											Invalid = 0;
+											WB = 0;
+											New_Estado = 2'b10;
+										end
+									end
+					2'b11: 	//Modified: M	
+						begin
+
+										if(Hit_Instrucao) // read hit
+											begin
+												RM = 0;
+												WM = 0;
+												Invalid = 0;
+												WB = 0;
+												New_Estado = 2'b11;
+											end
+										else // read miss
+											begin
+												RM = 1;
+												WM = 0;
+												Invalid = 0;
+												WB = 1;
+												New_Estado = 2'b10;
+											end
+
+						end
+				endcase	
+			
+		end
+	else 
+		begin
+			RM = 0;
+			WM = 0;
+			Invalid = 0;
+			WB = 0;
+			New_Estado = Estado_Inicial;
+		end
+	end
+	
+
+endmodule
+
+
+
+module recepitor(Clk, Test_CPU, Hit_InstrucaoD, Estado_Inicial, RM, WM, Invalid, WB, Mem_access, New_Estado);
+	input Clk, Test_CPU, Hit_InstrucaoD;
+	input [1:0] Estado_Inicial;
+	input RM, WM, Invalid;
+	output reg WB, Mem_access;
+	output reg [1:0]New_Estado;
+	
+	
+	always@(posedge Clk)
+	begin
+		if(~Test_CPU & Hit_InstrucaoD)
+			begin
+				case(Estado_Inicial)
+					2'b01:
+						begin
+							WB = 0;
+							Mem_access = 0;
+							New_Estado = 2'b01;
+						end
+					2'b10:
+						begin
+							if(WM)
+								begin
+									WB = 0;
+									Mem_access = 0;
+									New_Estado = 2'b01;
+								end
+							else
+							if(Invalid)
+								begin
+									WB = 0;
+									Mem_access = 0;
+									New_Estado = 2'b01;
+								end
+							else
+							if(RM)
+								begin
+									WB = 0;
+									Mem_access = 0;
+									New_Estado = 2'b10;
+								end
+							else
+								begin
+									WB = 0;
+									Mem_access = 0;
+									New_Estado = Estado_Inicial;
+							end
+						end
+					2'b11:
+						begin
+							if(WM)
+								begin
+									WB = 1;
+									Mem_access = 1;
+									New_Estado = 2'b01;
+								end
+							if(RM)
+								begin
+									WB = 1;
+									Mem_access = 1;
+									New_Estado = 2'b10;
+								end
+						end
+				endcase
+			end
+			else
+				begin
+					WB = 0;
+					Mem_access = 0;
+					New_Estado = Estado_Inicial;
+				end
+		end
+
+endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

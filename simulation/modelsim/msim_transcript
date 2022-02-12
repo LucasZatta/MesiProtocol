@@ -1,0 +1,411 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do mesi_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/mesi.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mesi
+# 
+# Top level modules:
+# 	mesi
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/MaquinaSecundaria.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module MaquinaSecundaria
+# 
+# Top level modules:
+# 	MaquinaSecundaria
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/maquinamesi.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module maquinaMESI
+# 
+# Top level modules:
+# 	maquinaMESI
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/p01.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module P01
+# 
+# Top level modules:
+# 	P01
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/p02.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module P02
+# 
+# Top level modules:
+# 	P02
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/p03.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module P03
+# 
+# Top level modules:
+# 	P03
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/mram.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mram
+# 
+# Top level modules:
+# 	mram
+# 
+vsim +altera -L altera_mf_ver -do mesi_run_msim_rtl_verilog.do -l msim_transcript -gui work.mesi
+# vsim +altera -L altera_mf_ver -do mesi_run_msim_rtl_verilog.do -l msim_transcript -gui work.mesi 
+# Loading work.mesi
+# Loading work.maquinaMESI
+# Loading work.MaquinaSecundaria
+# Loading work.P01
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading work.P02
+# Loading work.P03
+# Loading work.mram
+# do mesi_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/mesi.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mesi
+# 
+# Top level modules:
+# 	mesi
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/MaquinaSecundaria.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module MaquinaSecundaria
+# 
+# Top level modules:
+# 	MaquinaSecundaria
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/maquinamesi.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module maquinaMESI
+# 
+# Top level modules:
+# 	maquinaMESI
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/p01.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module P01
+# 
+# Top level modules:
+# 	P01
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/p02.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module P02
+# 
+# Top level modules:
+# 	P02
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/p03.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module P03
+# 
+# Top level modules:
+# 	P03
+# vlog -vlog01compat -work work +incdir+C:/Users/janio/Desktop/snoopingMESI/mesi {C:/Users/janio/Desktop/snoopingMESI/mesi/mram.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mram
+# 
+# Top level modules:
+# 	mram
+# 
+wave create -driver freeze -pattern clock -initialvalue 1 -period 100ps -dutycycle 50 -starttime 0ps -endtime 10000ps sim:/mesi/clk
+wave create -driver freeze -pattern constant -value 0 -starttime 0ps -endtime 10000ps sim:/mesi/habEscritaMem
+wave create -driver freeze -pattern constant -value 0010000000000000 -range 15 0 -starttime 0ps -endtime 1000ps sim:/mesi/Instrucao
+add wave -position insertpoint  \
+sim:/mesi/Saida
+add wave -position insertpoint  \
+sim:/mesi/WriteOrRead
+add wave -position insertpoint  \
+sim:/mesi/tag
+add wave -position insertpoint  \
+sim:/mesi/dado
+add wave -position insertpoint  \
+sim:/mesi/linhaProc1 \
+sim:/mesi/linhaProc2 \
+sim:/mesi/linhaProc3
+add wave -position insertpoint  \
+sim:/mesi/Invalidate
+add wave -position insertpoint  \
+sim:/mesi/ReadMiss
+add wave -position insertpoint  \
+sim:/mesi/WriteMiss
+add wave -position insertpoint  \
+sim:/mesi/novoEstadoSnoop1 \
+sim:/mesi/novoEstadoSnoop2 \
+sim:/mesi/novoEstadoSnoop3
+add wave -position insertpoint  \
+sim:/mesi/novoEstadoMacSecSnoop1 \
+sim:/mesi/novoEstadoMacSecSnoop2 \
+sim:/mesi/novoEstadoMacSecSnoop3
+add wave -position insertpoint  \
+sim:/mesi/WriteBack \
+sim:/mesi/WriteBack2
+add wave -position insertpoint  \
+sim:/mesi/DadoWriteBack
+add wave -position insertpoint  \
+sim:/mesi/dadoWriteback2
+run -all
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+restart
+# Loading work.mesi
+# Loading work.maquinaMESI
+# Loading work.MaquinaSecundaria
+# Loading work.P01
+# Loading work.P02
+# Loading work.P03
+# Loading work.mram
+add wave -position insertpoint  \
+sim:/mesi/noShared
+run -all
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+wave modify -driver freeze -pattern constant -value 1 -starttime 400ps -endtime 450ps Edit:/mesi/habEscritaMem
+wave modify -driver freeze -pattern constant -value St1 -starttime 400ps -endtime 500ps Edit:/mesi/habEscritaMem
+wave modify -driver freeze -pattern constant -value 0100000000000000 -range 15 0 -starttime 500ps -endtime 10000ps Edit:/mesi/Instrucao
+restart
+run
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+run
+run
+run
+run
+run
+run
+run
+run
+wave modify -driver freeze -pattern constant -value 1 -starttime 800ps -endtime 900ps Edit:/mesi/habEscritaMem
+wave modify -driver freeze -pattern constant -value 1100000000110000 -range 15 0 -starttime 900ps -endtime 10000ps Edit:/mesi/Instrucao
+restart
+run
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/mesi/acessoMem
+wave modify -driver freeze -pattern constant -value St1 -starttime 1400ps -endtime 1500ps Edit:/mesi/habEscritaMem
+wave modify -driver freeze -pattern constant -value 1010000001000000 -range 15 0 -starttime 1500ps -endtime 10000ps Edit:/mesi/Instrucao
+restart
+run
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+wave modify -driver freeze -pattern constant -value St1 -starttime 2000ps -endtime 2100ps Edit:/mesi/habEscritaMem
+wave modify -driver freeze -pattern constant -value 0100000000000000 -range 15 0 -starttime 2100ps -endtime 10000ps Edit:/mesi/Instrucao
+restart
+run
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+run
+run
+run
+run
+restart
+run
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+wave modify -driver freeze -pattern constant -value 0100001000000000 -range 15 0 -starttime 2600ps -endtime 2700ps Edit:/mesi/Instrucao
+wave modify -driver freeze -pattern constant -value 0100000000000000 -range 15 0 -starttime 2600ps -endtime 2700ps Edit:/mesi/Instrucao
+wave modify -driver freeze -pattern constant -value St1 -starttime 2600ps -endtime 2700ps Edit:/mesi/habEscritaMem
+wave modify -driver freeze -pattern constant -value 0100001000000000 -range 15 0 -starttime 2700ps -endtime 10000ps Edit:/mesi/Instrucao
+restart
+run
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/mesi/tagWbMaq2 \
+sim:/mesi/tagWriteBack
+wave modify -driver freeze -pattern constant -value St1 -starttime 3200ps -endtime 3300ps Edit:/mesi/habEscritaMem
+wave modify -driver freeze -pattern constant -value 1110001001100000 -range 15 0 -starttime 3300ps -endtime 10000ps Edit:/mesi/Instrucao
+restart
+run
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/janio/Desktop/snoopingMESI/mesi/simulation/modelsim/wave.do
+wave editwrite -file C:/Users/janio/Desktop/snoopingMESI/mesi/simulation/modelsim/wave.do -append
+run
+run
+run
+run
+wave modify -driver freeze -pattern constant -value St1 -starttime 3800ps -endtime 3900ps Edit:/mesi/habEscritaMem
+# mesi
+wave modify -driver freeze -pattern constant -value 0100011000000000 -range 15 0 -starttime 3900ps -endtime 10000ps Edit:/mesi/Instrucao
+# mesi
+restart
+run -all
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+wave modify -driver freeze -pattern constant -value St1 -starttime 4200ps -endtime 4300ps Edit:/mesi/habEscritaMem
+# mesi
+wave modify -driver freeze -pattern constant -value 1100011001000000 -range 15 0 -starttime 4300ps -endtime 7000ps Edit:/mesi/Instrucao
+# mesi
+restart
+run -all
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria.altsyncram_component
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: mesi.blocoMemoria2.altsyncram_component
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/janio/Desktop/snoopingMESI/mesi/simulation/modelsim/wave.do
+wave editwrite -file C:/Users/janio/Desktop/snoopingMESI/mesi/simulation/modelsim/wave.do -append
+add wave -position end -format Logic -height 17 -editable 2 Edit:/mesi/habEscritaMem

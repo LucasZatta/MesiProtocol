@@ -1,0 +1,14 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI {C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI/mesi.v}
+vlog -vlog01compat -work work +incdir+C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI {C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI/maquina.v}
+vlog -vlog01compat -work work +incdir+C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI {C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI/p01.v}
+vlog -vlog01compat -work work +incdir+C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI {C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI/p02.v}
+vlog -vlog01compat -work work +incdir+C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI {C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI/p03.v}
+vlog -vlog01compat -work work +incdir+C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI {C:/Users/thida/OneDrive/Documentos/AOC/MESI/MESI/mram.v}
+

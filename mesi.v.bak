@@ -1,0 +1,284 @@
+module snooping(liberar,Instruction,clk,Saida);
+input [15:0]Instruction;
+input clk,liberar;
+output reg[7:0]Saida;
+
+reg w_enable;
+reg [4:0]tag,tagWB;
+reg [1:0]px;
+reg [7:0]dado,dateWb;
+reg [14:0] f_dado1,f_dado2,f_dado3;
+reg [2:0] Rm,Wm,I,Wb,Ma,Wb2;
+
+wire p01,p02,p03, Hit_1, Hit_2, Hit_3, WriteBack; 
+wire rm_barramento,wm_barramento,i_barramento;
+wire [1:0] state01,state02,state03;
+wire [7:0] date01,date02,date03,dateMem;
+wire [4:0] tag01,tag02,tag03;
+wire [3:0] snooping_out01 ,snooping_out02,snooping_out03;//RM:[3], WM:[2],INV:[1],WB: [0]
+wire [1:0] recepitor1,recepitor2,recepitor3;//MA:[1],WB:[0]
+wire [1:0] snooping_new_state1,snooping_new_state2,snooping_new_state3;
+wire [1:0] recepitor_new_state1,recepitor_new_state2,recepitor_new_state3;
+wire [14:0] new_date1,new_date2,new_date3;
+
+assign p01= (px==2'b01) ? 1:0;
+assign p02= (px==2'b10) ? 1:0; 
+assign p03= (px==2'b11) ? 1:0;
+assign WriteBack =|({snooping_out01[0], snooping_out02[0], snooping_out03[0], recepitor1[0], recepitor2[0], recepitor3[0]});
+
+
+P01 bloco01_0 (tag[1:0], clk, new_date1, liberar&&(p01||Hit_1), {state01, tag01, date01});
+P02 bloco02_0 (tag[1:0], clk, new_date2, liberar&&(p02||Hit_2), {state02, tag02, date02});
+P03 bloco03_0 (tag[1:0], clk, new_date3, liberar&&(p03||Hit_3), {state03, tag03, date03});
+
+
+assign Hit_1=&(tag~^tag01);
+assign Hit_2=&(tag~^tag02);
+assign Hit_3=&(tag~^tag03);
+assign rm_barramento = |Rm;
+assign wm_barramento = |Wm;
+assign i_barramento = |I;
+assign new_date1 = f_dado1;
+assign new_date2 = f_dado2;
+assign new_date3 = f_dado3;
+
+mram blocoMemoria (clk,dateWb,tag,tagWB,WriteBack,dateMem); 
+
+maquina Maquina_1 (clk, w_enable, p01, Hit_1, state01, snooping_out01[3], snooping_out01[2], snooping_out01[1], snooping_out01[0], snooping_new_state1);
+maquina Maquina_2 (clk, w_enable, p02, Hit_2, state02, snooping_out02[3], snooping_out02[2], snooping_out02[1], snooping_out02[0], snooping_new_state2);
+maquina Maquina_3 (clk, w_enable, p03, Hit_3, state03, snooping_out03[3], snooping_out03[2], snooping_out03[1], snooping_out03[0], snooping_new_state3);
+
+recepitor Receptor_1 (clk, p01, Hit_1, state01, rm_barramento, wm_barramento, i_barramento, recepitor1[0], recepitor1[1], recepitor_new_state1);
+recepitor Receptor_2 (clk, p02, Hit_2, state02, rm_barramento, wm_barramento, i_barramento, recepitor2[0], recepitor2[1], recepitor_new_state2);
+recepitor Receptor_3 (clk, p03, Hit_3, state03, rm_barramento, wm_barramento, i_barramento, recepitor3[0], recepitor3[1], recepitor_new_state3);
+
+
+always@(posedge clk) begin
+ w_enable = Instruction[15]; 
+ px = Instruction[14:13];
+ tag = Instruction[12:8];
+ dado = Instruction[7:0];
+ Rm = {snooping_out03[3],snooping_out02[3],snooping_out01[3]};
+ Wm = {snooping_out03[2],snooping_out02[2],snooping_out01[2]};
+ I = {snooping_out03[1],snooping_out02[1],snooping_out01[1]};
+ Wb = {snooping_out03[0],snooping_out02[0],snooping_out01[0]};
+ Ma = {recepitor3[1],recepitor2[1],recepitor1[1]};
+ Wb2 = {recepitor3[0],recepitor2[0],recepitor1[0]};
+ 
+ if (p01) 
+	begin
+		if (Rm[0]) 
+			begin
+				if(Wb[0])
+					begin
+						dateWb=date01;
+						tagWB = tag01;
+					end
+				if (Ma[1]) 
+					begin
+						f_dado1 = {snooping_new_state1,tag02,date02};
+						Saida = date02;
+					end
+				else 
+					if (Ma[2]) 
+						begin
+							f_dado1 = {snooping_new_state1,tag03,date03};
+							Saida = date03;
+						end
+				else 
+					begin
+						f_dado1 = {snooping_new_state1,tag,dateMem};
+						Saida = dateMem;
+					end
+			end
+		else 
+			if (Wm[0]) 
+				begin
+					if(Wb[0]) 
+						begin
+							dateWb = date01;
+							tagWB = tag01;
+						end
+					f_dado1 = {snooping_new_state1,tag,dado};
+					Saida = dado;
+				end
+			else 
+				if(w_enable)
+					begin
+						f_dado1 ={snooping_new_state1,tag,dado};
+						Saida = dado;
+					end 
+				else 
+					begin
+						f_dado1 ={snooping_new_state1,tag,date01};
+						Saida = date01;
+					end
+	end
+else 
+	begin
+		if (Hit_1) 
+			begin
+				if (Wb2[0]) 
+					begin
+						dateWb = date01;
+						tagWB = tag01;
+					end
+				f_dado1 ={recepitor_new_state1,tag01,date01};
+			end
+			else 
+				begin
+					f_dado1 ={state01,tag01,date01};
+				end
+	end
+	
+  
+if (p02) 
+	begin
+		if (Rm[1]) 
+			begin
+				if(Wb[1])
+					begin
+						dateWb=date02;
+						tagWB = tag02;
+					end
+				if (Ma[0]) 
+					begin
+						f_dado2 = {snooping_new_state2,tag01,date01};
+						Saida = date01;
+					end
+				else if (Ma[2]) 
+					begin
+						f_dado2 = {snooping_new_state2,tag03,date03};
+						Saida = date03;
+					end
+				else 
+					begin
+						f_dado2 = {snooping_new_state2,tag,dateMem};
+						Saida = dateMem;
+					end
+			end
+		else  
+			if (Wm[1]) 
+				begin
+					if(Wb[1]) 
+						begin
+							dateWb = date02;
+							tagWB = tag02;
+						end
+						f_dado2 = {snooping_new_state2,tag,dado};
+						Saida = dado;
+				end
+			else 
+				if(w_enable)
+					begin
+						f_dado2 ={snooping_new_state2,tag,dado};
+						Saida = dado;
+					end 
+				else 
+					begin
+						f_dado2 ={snooping_new_state2,tag,date02};
+						Saida = date02;
+					end
+	end
+else 
+	begin
+		if (Hit_2) 
+			begin
+			if (Wb2[1]) 
+				begin
+					dateWb =date02;
+					tagWB = tag02;
+				end
+				f_dado2 ={recepitor_new_state2,tag02,date02};
+			end
+			else 
+		begin
+			f_dado2 ={state02,tag02,date02};
+		end
+	end
+  
+if (p03) 
+	begin
+		if (Rm[2]) 
+			begin
+				if(Wb[2])
+					begin
+						dateWb=date03;
+						tagWB = tag03;
+					end
+				if (Ma[1]) 
+					begin
+						f_dado3 = {snooping_new_state3,tag02,date02};
+						Saida = date02;
+					end
+				else 
+					if (Ma[0]) 
+						begin
+							f_dado3 = {snooping_new_state3,tag01,date01};
+							Saida = date01;
+						end
+					else 
+						begin
+							f_dado3 = {snooping_new_state3,tag,dateMem};
+							Saida = dateMem;
+						end
+			end
+		else 
+			if (Wm[2]) 
+					begin
+						if(Wb[2]) 
+							begin
+								dateWb = date03;
+								tagWB = tag03;
+							end
+						f_dado3 = {snooping_new_state3,tag,dado};
+						Saida = dado;
+					end
+			else 
+				if(w_enable)
+					begin
+						f_dado3 ={snooping_new_state3,tag,dado};
+						Saida = dado;
+					end 
+			  else 
+				begin
+					f_dado1 ={snooping_new_state3,tag,date03};
+					Saida = date03;
+				end
+  end
+else 
+	begin
+		if (Hit_3) 
+			begin
+				if (Wb2[2])	
+					begin
+						dateWb =date03;
+						tagWB = tag03;
+					end
+				f_dado3 ={recepitor_new_state3,tag03,date03};
+			end
+			else 
+				begin
+					f_dado3 ={state03,tag03,date03};
+				end
+	end
+
+ 
+ 
+
+  
+ 
+end
+
+endmodule 
+
+
+
+
+
+
+
+
+
+
+

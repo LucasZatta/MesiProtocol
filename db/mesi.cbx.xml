@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="mesi">
+		<CBX_INST_ENTRY INSTANCE_NAME="|mesi|P01:bloco01_0|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_cnj1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mesi|P02:bloco02_0|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_dnj1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mesi|P03:bloco03_0|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_hrh1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mesi|mram:blocoMemoria2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_vtr1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mesi|mram:blocoMemoria|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_vtr1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
