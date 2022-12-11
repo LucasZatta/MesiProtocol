@@ -4,7 +4,7 @@ module maquina(Clk, w_enable, Test_CPU, Hit_Instrucao, Estado_Inicial, RM, WM, I
 	output reg RM, WM, Invalid, WB;
 	output reg [1:0]New_Estado;		// as operações que eram feitas na maquina passaram a ser feita no bloco principal
 
-	
+	//teste
 	reg [1:0]bloco_instruction;
 	reg [4:0]tag, tag_instruction;
 	
